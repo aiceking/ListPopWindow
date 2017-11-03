@@ -114,7 +114,7 @@ public class StringImageActivity extends AppCompatActivity {
                         new ListPopWindowHelp.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
-                                Toast.makeText(StringImageActivity.this, list_netImages.get(position).getType()+"="+list.get(position).getContent(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(StringImageActivity.this, list_netImages.get(position).getType()+"="+list_netImages.get(position).getContent(), Toast.LENGTH_SHORT).show();
                             }
                         });
                 break;
