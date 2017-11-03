@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.android.listpopwindow.StringActivity">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:text="自适应宽度的ListPopWindow_无背景"
+        android:id="@+id/btn_string_nobackground"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAllCaps="false"
+
+        android:text="自适应宽度的ListPopWindow_有背景"
+        android:id="@+id/btn_string_withbackground"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAllCaps="false"
+
+        android:text="宽度全屏的ListPopWindow_无背景"
+        android:id="@+id/btn_string_nobackground_fillscreen"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:text="宽度全屏的ListPopWindow_有背景"
+        android:id="@+id/btn_string_withbackground_fillscreen"/>
+
+</LinearLayout>
