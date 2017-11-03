@@ -80,7 +80,7 @@ public class ListPopWindowHelp {
             stringPopupWindowNoBackground.setTouchable(true);
             stringPopupWindowNoBackground.setFocusable(true);
             stringPopupWindowNoBackground.showAsDropDown(view,0,0);
-        pop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            pop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 stringPopupWindowNoBackground.dismiss();
@@ -93,6 +93,15 @@ public class ListPopWindowHelp {
                 list_strings.clear();
                 list_strings.addAll(list);
                 stringAdapter.setNotify(context);
+                ((WidthListView)stringPopupWindowNoBackground.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringPopupWindowNoBackground.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);}
+                            }
+                        });
                 stringPopupWindowNoBackground.showAsDropDown(view,0,0);
             }
         }
@@ -131,6 +140,15 @@ public class ListPopWindowHelp {
                 list_strings.clear();
                 list_strings.addAll(list);
                 stringAdapter_fillScreen.setNotify(context);
+                ((ListView)stringPopupWindowNoBackground_fillScreen.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringPopupWindowNoBackground_fillScreen.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);}
+                            }
+                        });
                 stringPopupWindowNoBackground_fillScreen.showAsDropDown(view,0,0);
             }
         }
@@ -195,6 +213,15 @@ public class ListPopWindowHelp {
                         context.getWindow().setAttributes(lp);
                     }
                 });
+                ((WidthListView)stringPopupWindowWithBackground.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringPopupWindowWithBackground.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);}
+                            }
+                        });
                 stringPopupWindowWithBackground.showAsDropDown(view,0,0);
             }
         }
@@ -258,6 +285,16 @@ public class ListPopWindowHelp {
                         context.getWindow().setAttributes(lp);
                     }
                 });
+                ((ListView)stringPopupWindowWithBackground_fillScreen.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringPopupWindowWithBackground_fillScreen.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);
+                                }
+                            }
+                        });
                 stringPopupWindowWithBackground_fillScreen.showAsDropDown(view,0,0);
             }
         }
@@ -296,6 +333,16 @@ public class ListPopWindowHelp {
                 list_string_images.clear();
                 list_string_images.addAll(list);
                 stringImageAdapter.setNotify(context);
+                ((WidthListView)stringImagePopupWindowNoBackground.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringImagePopupWindowNoBackground.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);
+                                }
+                            }
+                        });
                 stringImagePopupWindowNoBackground.showAsDropDown(view,0,0);
             }
         }
@@ -334,6 +381,16 @@ public class ListPopWindowHelp {
                 list_string_images.clear();
                 list_string_images.addAll(list);
                 stringImageAdapter_fillScreen.setNotify(context);
+                ((ListView)stringImagePopupWindowNoBackground_fillScreen.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringImagePopupWindowNoBackground_fillScreen.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);
+                                }
+                            }
+                        });
                 stringImagePopupWindowNoBackground_fillScreen.showAsDropDown(view,0,0);
             }
         }
@@ -397,6 +454,16 @@ public class ListPopWindowHelp {
                         context.getWindow().setAttributes(lp);
                     }
                 });
+                ((WidthListView)stringImagePopupWindowWithBackground.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringImagePopupWindowWithBackground.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);
+                                }
+                            }
+                        });
                 stringImagePopupWindowWithBackground.showAsDropDown(view,0,0);
             }
         }
@@ -461,6 +528,16 @@ public class ListPopWindowHelp {
                         context.getWindow().setAttributes(lp);
                     }
                 });
+                ((ListView)stringImagePopupWindowWithBackground_fillScreen.getContentView().findViewById(R.id.pop_listview))
+                        .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                stringImagePopupWindowWithBackground_fillScreen.dismiss();
+                                if (onListPopItemClickListener!=null){
+                                    onListPopItemClickListener.onClick(i);
+                                }
+                            }
+                        });
                 stringImagePopupWindowWithBackground_fillScreen.showAsDropDown(view,0,0);
             }
         }
