@@ -10,7 +10,7 @@ import android.widget.ListView;
  */
 
 public class WidthListView extends ListView {
-
+private int measureWidth;
     public WidthListView(Context context) {
         super(context);
     }
@@ -25,7 +25,8 @@ public class WidthListView extends ListView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = getMaxWidthOfChildren() + getPaddingLeft() + getPaddingRight();//计算listview的宽度
+        measureWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int width = getMaxWidthOfChildren() ;//计算listview的宽度
         super.onMeasure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY), heightMeasureSpec);//设置listview的宽高
 
     }
@@ -42,9 +43,13 @@ public class WidthListView extends ListView {
         for (int i = 0; i < count; i++) {
             view = getAdapter().getView(i, view, this);
             view.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
-            if (view.getMeasuredWidth() > maxWidth)
+            if (view.getMeasuredWidth() > maxWidth){
+            if (view.getMeasuredWidth()<=measureWidth){
                 maxWidth = view.getMeasuredWidth();
-        }
+            }else{
+                maxWidth=measureWidth;
+            }
+        }}
         return maxWidth;
     }
 }
