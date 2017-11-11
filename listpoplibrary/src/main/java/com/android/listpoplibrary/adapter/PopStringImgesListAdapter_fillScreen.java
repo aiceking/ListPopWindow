@@ -8,12 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.listpoplibrary.ListPopWindowHelp;
 import com.android.listpoplibrary.R;
 import com.android.listpoplibrary.model.ImageType;
 import com.android.listpoplibrary.model.ListPopModel;
-import com.bumptech.glide.Glide;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -63,11 +62,9 @@ public class PopStringImgesListAdapter_fillScreen extends BaseAdapter {
         if (list.get(i).getType()== ImageType.Resources){
         viewHolder.ivPopwindowListview.setImageResource(list.get(i).getImageId());
         }else if (list.get(i).getType()== ImageType.Net){
-            Glide.with(context).load(list.get(i).getImagePath())
-                    .asBitmap()
-                    .placeholder(R.drawable.default_image)
-                    .error(R.drawable.default_image)
-                    .into(viewHolder.ivPopwindowListview);
+            ListPopWindowHelp.getInStance().showImage(context,list.get(i).getImagePath(),viewHolder.ivPopwindowListview);
+
+
         }
         return view;
     }

@@ -1,12 +1,14 @@
 package com.android.listpoplibrary;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -49,6 +51,28 @@ public class ListPopWindowHelp {
     private PopStringImgesListAdapter_fillScreen stringImageAdapter_fillScreen;
     private List<String> list_strings;
     private List<ListPopModel> list_string_images;
+    public void setShowImageListener(showImageListener showImageListener) {
+        this.showImageListener = showImageListener;
+    }
+    private showImageListener showImageListener;
+    public interface showImageListener{
+        void showImage(Context context,  String path, ImageView imageView);
+    }
+    public void showImage(Context context,String path,ImageView imageView){
+        if (showImageListener!=null){
+            showImageListener.showImage( context,path,imageView);
+        }else{
+            showToast(context,"请初始化图片加载接口");
+        }
+    }
+    private  Toast toast;
+    public  void showToast(Context context,String message){
+        if(toast==null){
+            toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+        }
+        toast.setText(message);
+        toast.show();
+    }
     public static ListPopWindowHelp getInStance(){
         if (listPopWindowHelp==null){
             synchronized (ListPopWindowHelp.class){

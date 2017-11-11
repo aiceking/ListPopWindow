@@ -1,14 +1,17 @@
 package com.android.listpopwindow;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.listpoplibrary.ListPopWindowHelp;
 import com.android.listpoplibrary.model.ImageType;
 import com.android.listpoplibrary.model.ListPopModel;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,16 @@ public class StringImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_string_image);
         ButterKnife.bind(this);
+        ListPopWindowHelp.getInStance().setShowImageListener(new ListPopWindowHelp.showImageListener() {
+            @Override
+            public void showImage(Context context, String path, ImageView imageView) {
+                Glide.with(context).load(path)
+                        .asBitmap()
+                        .placeholder(com.android.listpoplibrary.R.drawable.default_image)
+                        .error(com.android.listpoplibrary.R.drawable.default_image)
+                        .into(imageView);
+            }
+        });
     }
     @OnClick({R.id.btn_string_image_nobackground, R.id.btn_string_image_withbackground, R.id.btn_string_image_nobackground_fillscreen, R.id.btn_string_image_withbackground_fillscreen, R.id.btn_string_image_net})
     public void onViewClicked(View view) {
