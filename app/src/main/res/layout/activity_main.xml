@@ -26,4 +26,14 @@
         android:textAllCaps="false"
         android:id="@+id/btn_string_image"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="自定义PopWindow"
+        android:textAllCaps="false"
+        android:id="@+id/btn_string_common"
+        />
 </LinearLayout>

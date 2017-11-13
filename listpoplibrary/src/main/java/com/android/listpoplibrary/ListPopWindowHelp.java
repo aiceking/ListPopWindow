@@ -2,6 +2,7 @@ package com.android.listpoplibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -565,5 +566,26 @@ public class ListPopWindowHelp {
                 stringImagePopupWindowWithBackground_fillScreen.showAsDropDown(view,0,0);
             }
         }
+    }
+    public PopupWindow showCommonPopWindow(View contentView,View rootView, final Activity activity){
+        PopupWindow popView = new PopupWindow(contentView, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT,true);
+        popView.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        popView.setOutsideTouchable(true);
+        popView.setFocusable(true);
+        popView.showAsDropDown(rootView);
+        // 设置背景颜色变暗
+        WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+        lp.alpha = 0.7f;
+        activity.getWindow().setAttributes(lp);
+        popView.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+                lp.alpha = 1f;
+                activity.getWindow().setAttributes(lp);
+            }
+        });
+        return popView;
     }
 }
