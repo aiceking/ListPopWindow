@@ -49,7 +49,7 @@ public class CommonPopActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (popupWindow.isShowing()){
+        if (popupWindow!=null&&popupWindow.isShowing()){
             popupWindow.dismiss();
         }
     }
