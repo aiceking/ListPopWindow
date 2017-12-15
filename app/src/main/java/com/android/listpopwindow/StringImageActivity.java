@@ -38,16 +38,7 @@ public class StringImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_string_image);
         ButterKnife.bind(this);
-        ListPopWindowManager.getInStance().setShowImageListener(new ListPopWindowManager.showImageListener() {
-            @Override
-            public void showImage(Context context, String path, ImageView imageView) {
-                Glide.with(context).load(path)
-                        .asBitmap()
-                        .placeholder(com.android.listpoplibrary.R.drawable.default_image)
-                        .error(com.android.listpoplibrary.R.drawable.default_image)
-                        .into(imageView);
-            }
-        });
+
     }
     @OnClick({R.id.btn_string_image_nobackground, R.id.btn_string_image_withbackground, R.id.btn_string_image_nobackground_fillscreen, R.id.btn_string_image_withbackground_fillscreen, R.id.btn_string_image_net})
     public void onViewClicked(View view) {
