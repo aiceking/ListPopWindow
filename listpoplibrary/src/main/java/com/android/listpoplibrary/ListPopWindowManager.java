@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.ColorRes;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -142,6 +143,7 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringPopupWindowNoBackground.containsKey(activity)){
+            Log.v("pop=","new");
         View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_library, null);
         WidthListView pop_listview=(WidthListView)contentview.findViewById(R.id.pop_listview);
         CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -168,6 +170,8 @@ public class ListPopWindowManager {
             hashMap_stringPopupWindowNoBackground.put(activity,stringPopupWindowNoBackground);
         }else{
             if (!hashMap_stringPopupWindowNoBackground.get(activity).isShowing()){
+                Log.v("pop=","old");
+
                 WidthListView pop_listview=(WidthListView)hashMap_stringPopupWindowNoBackground.get(activity).getContentView().findViewById(R.id.pop_listview);
 
                 PopStringListAdapter  stringAdapter=new PopStringListAdapter(list,activity);
@@ -190,6 +194,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringPopupWindowNoBackground_fillScreen.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_fillparent_library, null);
             ListView pop_listview=(ListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -217,6 +223,8 @@ public class ListPopWindowManager {
             hashMap_stringPopupWindowNoBackground_fillScreen.put(activity,stringPopupWindowNoBackground_fillScreen);
         }else{
             if (!hashMap_stringPopupWindowNoBackground_fillScreen.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 PopStringListAdapter_fillScreen stringAdapter_fillScreen=new PopStringListAdapter_fillScreen(list,activity);
                 ListView pop_listview=(ListView)hashMap_stringPopupWindowNoBackground_fillScreen.get(activity).getContentView().findViewById(R.id.pop_listview);
                 pop_listview.setAdapter(stringAdapter_fillScreen);
@@ -239,6 +247,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringPopupWindowWithBackground.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_library, null);
             WidthListView pop_listview=(WidthListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -279,6 +289,8 @@ public class ListPopWindowManager {
             hashMap_stringPopupWindowWithBackground.put(activity,stringPopupWindowWithBackground);
         }else{
             if (!hashMap_stringPopupWindowWithBackground.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 WidthListView pop_listview=(WidthListView)hashMap_stringPopupWindowWithBackground.get(activity).getContentView().findViewById(R.id.pop_listview);
                 PopStringListAdapter stringAdapter=new PopStringListAdapter(list,activity);
                 pop_listview.setAdapter(stringAdapter);
@@ -312,6 +324,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringPopupWindowWithBackground_fillScreen.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_fillparent_library, null);
             ListView pop_listview=(ListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -352,6 +366,8 @@ public class ListPopWindowManager {
             hashMap_stringPopupWindowWithBackground_fillScreen.put(activity,stringPopupWindowWithBackground_fillScreen);
         }else{
             if (!hashMap_stringPopupWindowWithBackground_fillScreen.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 ListView pop_listview=(ListView)hashMap_stringPopupWindowWithBackground_fillScreen.get(activity).getContentView().findViewById(R.id.pop_listview);
                 PopStringListAdapter_fillScreen stringAdapter_fillScreen=new PopStringListAdapter_fillScreen(list,activity);
                 pop_listview.setAdapter(stringAdapter_fillScreen);
@@ -386,6 +402,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringImagePopupWindowNoBackground.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_library, null);
             WidthListView pop_listview=(WidthListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -412,6 +430,8 @@ public class ListPopWindowManager {
             hashMap_stringImagePopupWindowNoBackground.put(activity,stringImagePopupWindowNoBackground);
         }else{
             if (!hashMap_stringImagePopupWindowNoBackground.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 WidthListView pop_listview=(WidthListView)hashMap_stringImagePopupWindowNoBackground.get(activity).getContentView().findViewById(R.id.pop_listview);
                 PopStringImgesListAdapter stringImageAdapter=new PopStringImgesListAdapter(list,activity);
                 pop_listview.setAdapter(stringImageAdapter);
@@ -434,6 +454,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringImagePopupWindowNoBackground_fillScreen.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_fillparent_library, null);
             ListView pop_listview=(ListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -461,6 +483,8 @@ public class ListPopWindowManager {
             hashMap_stringImagePopupWindowNoBackground_fillScreen.put(activity,stringImagePopupWindowNoBackground_fillScreen);
         }else{
             if (!hashMap_stringImagePopupWindowNoBackground_fillScreen.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 ListView pop_listview=(ListView)hashMap_stringImagePopupWindowNoBackground_fillScreen.get(activity).getContentView().findViewById(R.id.pop_listview);
                 PopStringImgesListAdapter_fillScreen stringImageAdapter_fillScreen=new PopStringImgesListAdapter_fillScreen(list,activity);
                 pop_listview.setAdapter(stringImageAdapter_fillScreen);
@@ -483,6 +507,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringImagePopupWindowWithBackground.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_library, null);
             WidthListView pop_listview=(WidthListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -523,6 +549,8 @@ public class ListPopWindowManager {
             hashMap_stringImagePopupWindowWithBackground.put(activity,stringImagePopupWindowWithBackground);
         }else{
             if (!hashMap_stringImagePopupWindowWithBackground.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 WidthListView pop_listview=(WidthListView)hashMap_stringImagePopupWindowWithBackground.get(activity).getContentView().findViewById(R.id.pop_listview);
                 PopStringImgesListAdapter stringImageAdapter=new PopStringImgesListAdapter(list,activity);
                 pop_listview.setAdapter(stringImageAdapter);
@@ -557,6 +585,8 @@ public class ListPopWindowManager {
             return;
         }
         if (!hashMap_stringImagePopupWindowWithBackground_fillScreen.containsKey(activity)){
+            Log.v("pop=","new");
+
             View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_fillparent_library, null);
             ListView pop_listview=(ListView)contentview.findViewById(R.id.pop_listview);
             CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
@@ -597,6 +627,8 @@ public class ListPopWindowManager {
             hashMap_stringImagePopupWindowWithBackground_fillScreen.put(activity,stringImagePopupWindowWithBackground_fillScreen);
         }else{
             if (!hashMap_stringImagePopupWindowWithBackground_fillScreen.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
                 ListView pop_listview=(ListView)hashMap_stringImagePopupWindowWithBackground_fillScreen.get(activity).getContentView().findViewById(R.id.pop_listview);
                 PopStringImgesListAdapter_fillScreen stringImageAdapter_fillScreen=new PopStringImgesListAdapter_fillScreen(list,activity);
                 pop_listview.setAdapter(stringImageAdapter_fillScreen);
