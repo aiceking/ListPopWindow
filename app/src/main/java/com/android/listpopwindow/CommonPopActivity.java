@@ -10,7 +10,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.listpoplibrary.ListPopWindowHelp;
+import com.android.listpoplibrary.ListPopWindowManager;
+import com.android.listpoplibrary.model.PopWindowType;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +21,7 @@ public class CommonPopActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_string_common)
     Button btnStringCommon;
-
+    private PopupWindow popupWindow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class CommonPopActivity extends AppCompatActivity {
         tv.setGravity(Gravity.CENTER);
         tv.setPadding(10,30,10,30);
         tv.setBackgroundColor(Color.WHITE);
-        final PopupWindow popupWindow= ListPopWindowHelp.getInStance().showCommonPopWindow(tv,btnStringCommon,this);
+        popupWindow= ListPopWindowManager.getInStance().showCommonPopWindow(tv,btnStringCommon,this,true);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,5 +44,13 @@ public class CommonPopActivity extends AppCompatActivity {
                 Toast.makeText(CommonPopActivity.this, "测试", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (popupWindow.isShowing()){
+            popupWindow.dismiss();
+        }
     }
 }

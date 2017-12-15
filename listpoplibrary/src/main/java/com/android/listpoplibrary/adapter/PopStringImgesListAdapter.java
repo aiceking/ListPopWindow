@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.listpoplibrary.ListPopWindowHelp;
+import com.android.listpoplibrary.ListPopWindowManager;
 import com.android.listpoplibrary.R;
 import com.android.listpoplibrary.model.ImageType;
 import com.android.listpoplibrary.model.ListPopModel;
@@ -51,7 +51,7 @@ public class PopStringImgesListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder viewHolder;
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.popwindow_listview_imgs_item, viewGroup, false);
+            view = LayoutInflater.from(context).inflate(R.layout.popwindow_listview_imgs_item_library, viewGroup, false);
             viewHolder = new ViewHolder();
             viewHolder.ivPopwindowListview=(ImageView)view.findViewById(R.id.iv_popwindow_listview);
             viewHolder.tvPopwindowListview=(TextView) view.findViewById(R.id.tv_popwindow_listview);
@@ -60,10 +60,16 @@ public class PopStringImgesListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.tvPopwindowListview.setText(list.get(i).getContent());
+        if (ListPopWindowManager.getInStance().getTextColor()!=0){
+            viewHolder.tvPopwindowListview.setTextColor(context.getResources().getColor(ListPopWindowManager.getInStance().getTextColor()));
+
+        }
         if (list.get(i).getType()== ImageType.Resources){
         viewHolder.ivPopwindowListview.setImageResource(list.get(i).getImageId());
         } else if (list.get(i).getType()== ImageType.Net){
-            ListPopWindowHelp.getInStance().showImage(context,list.get(i).getImagePath(),viewHolder.ivPopwindowListview);
+            if (ListPopWindowManager.getInStance().getShowImageListener()!=null){
+                ListPopWindowManager.getInStance().getShowImageListener().showImage(context,list.get(i).getImagePath(),viewHolder.ivPopwindowListview);
+            }
         }
         return view;
     }

@@ -15,6 +15,7 @@
     app:cardBackgroundColor="#ffffff"
     app:cardCornerRadius="5dp"
     app:cardElevation="3dp"
+    android:id="@+id/card_popwindow"
     >
 
 <com.android.listpoplibrary.view.WidthListView

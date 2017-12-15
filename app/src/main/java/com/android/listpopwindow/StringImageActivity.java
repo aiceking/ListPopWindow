@@ -8,9 +8,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.listpoplibrary.ListPopWindowHelp;
+import com.android.listpoplibrary.ListPopWindowManager;
 import com.android.listpoplibrary.model.ImageType;
 import com.android.listpoplibrary.model.ListPopModel;
+import com.android.listpoplibrary.model.PopWindowType;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class StringImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_string_image);
         ButterKnife.bind(this);
-        ListPopWindowHelp.getInStance().setShowImageListener(new ListPopWindowHelp.showImageListener() {
+        ListPopWindowManager.getInStance().setShowImageListener(new ListPopWindowManager.showImageListener() {
             @Override
             public void showImage(Context context, String path, ImageView imageView) {
                 Glide.with(context).load(path)
@@ -61,8 +62,8 @@ public class StringImageActivity extends AppCompatActivity {
         list.add(new ListPopModel("测试===== 8", R.drawable.shizi,  ImageType.Resources));
         switch (view.getId()) {
             case R.id.btn_string_image_nobackground:
-                ListPopWindowHelp.getInStance().showStringAndImagePopNoBg(list, btnStringImageNobackground, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Nobg,list, btnStringImageNobackground, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringImageActivity.this, list.get(position).getType()+"="+list.get(position).getContent(), Toast.LENGTH_SHORT).show();
@@ -70,8 +71,8 @@ public class StringImageActivity extends AppCompatActivity {
                         });
                 break;
             case R.id.btn_string_image_withbackground:
-                ListPopWindowHelp.getInStance().showStringAndImagePopHasBg(list, btnStringImageWithbackground, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Hasbg,list, btnStringImageWithbackground, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringImageActivity.this, list.get(position).getType()+"="+list.get(position).getContent(), Toast.LENGTH_SHORT).show();
@@ -80,8 +81,8 @@ public class StringImageActivity extends AppCompatActivity {
 
                 break;
             case R.id.btn_string_image_nobackground_fillscreen:
-                ListPopWindowHelp.getInStance().showStringAndImagePopNoBg_fillScreen(list, btnStringImageNobackgroundFillscreen, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Nobg_fill,list, btnStringImageNobackgroundFillscreen, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringImageActivity.this, list.get(position).getType()+"="+list.get(position).getContent(), Toast.LENGTH_SHORT).show();
@@ -90,7 +91,7 @@ public class StringImageActivity extends AppCompatActivity {
 
                 break;
             case R.id.btn_string_image_withbackground_fillscreen:
-                ListPopWindowHelp.getInStance().showStringAndImagePopHasBg_fillScreen(list, btnStringImageWithbackgroundFillscreen, this,new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Hasbg_fill,list, btnStringImageWithbackgroundFillscreen, this,new ListPopWindowManager.onListPopItemClickListener() {
                     @Override
                     public void onClick(int position) {
                         Toast.makeText(StringImageActivity.this, list.get(position).getType()+"="+list.get(position).getContent(), Toast.LENGTH_SHORT).show();
@@ -123,8 +124,8 @@ public class StringImageActivity extends AppCompatActivity {
                 list_netImages.add(new ListPopModel("测试===== 8",
                         "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509618093965&di=8e9d62f51db174daee4b8446db44cea3&imgtype=0&src=http%3A%2F%2Fgb.cri.cn%2Fmmsource%2Fimages%2F2013%2F06%2F25%2F90%2F13492636535114937994.jpg",
                         ImageType.Net));
-                ListPopWindowHelp.getInStance().showStringAndImagePopHasBg_fillScreen(list_netImages, btnStringImageNet, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Nobg_fill,list_netImages, btnStringImageNet, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringImageActivity.this, list_netImages.get(position).getType()+"="+list_netImages.get(position).getContent(), Toast.LENGTH_SHORT).show();
@@ -132,5 +133,10 @@ public class StringImageActivity extends AppCompatActivity {
                         });
                 break;
         }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ListPopWindowManager.getInStance().onDestoryPopWindow(this);
     }
 }

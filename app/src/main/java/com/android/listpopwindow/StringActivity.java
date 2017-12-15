@@ -6,7 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.android.listpoplibrary.ListPopWindowHelp;
+import com.android.listpoplibrary.ListPopWindowManager;
+import com.android.listpoplibrary.model.PopWindowType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +47,8 @@ public class StringActivity extends AppCompatActivity {
                 list.add("测试===== 6");
                 list.add("测试===== 7");
                 list.add("测试===== 8");
-                ListPopWindowHelp.getInStance().showStringPopNoBg(list, btnStringNobackground, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Nobg,list, btnStringNobackground, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringActivity.this, list.get(position)+"", Toast.LENGTH_SHORT).show();
@@ -64,8 +65,8 @@ public class StringActivity extends AppCompatActivity {
                 list2.add("测试===== 6");
                 list2.add("测试===== 7");
                 list2.add("测试===== 8");
-                ListPopWindowHelp.getInStance().showStringPopHasBg(list2, btnStringWithbackground, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Hasbg,list2, btnStringWithbackground, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringActivity.this, list2.get(position)+"", Toast.LENGTH_SHORT).show();
@@ -82,8 +83,8 @@ public class StringActivity extends AppCompatActivity {
                 list3.add("测试===== 6");
                 list3.add("测试===== 7");
                 list3.add("测试===== 8");
-                ListPopWindowHelp.getInStance().showStringPopNoBg_fillScreen(list3, btnStringNobackgroundFillscreen, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Nobg_fill,list3, btnStringNobackgroundFillscreen, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringActivity.this, list3.get(position)+"", Toast.LENGTH_SHORT).show();
@@ -100,8 +101,8 @@ public class StringActivity extends AppCompatActivity {
                 list4.add("测试===== 6");
                 list4.add("测试===== 7");
                 list4.add("测试===== 8");
-                ListPopWindowHelp.getInStance().showStringPopHasBg_fillScreen(list4, btnStringWithbackgroundFillscreen, this,
-                        new ListPopWindowHelp.onListPopItemClickListener() {
+                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Hasbg_fill,list4, btnStringWithbackgroundFillscreen, this,
+                        new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
                                 Toast.makeText(StringActivity.this, list4.get(position)+"", Toast.LENGTH_SHORT).show();
@@ -109,5 +110,11 @@ public class StringActivity extends AppCompatActivity {
                         });
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ListPopWindowManager.getInStance().onDestoryPopWindow(this);
     }
 }
