@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.android.listpopwindow.CommonPopActivity">
+
     <Button
+        android:id="@+id/btn_string_common"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:padding="10dp"
-        android:layout_centerHorizontal="true"
         android:text="自定义PopWindow"
-        android:textAllCaps="false"
-        android:id="@+id/btn_string_common"
-        />
+        android:textAllCaps="false" />
 </android.support.constraint.ConstraintLayout>

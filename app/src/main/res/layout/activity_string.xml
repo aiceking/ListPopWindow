@@ -5,35 +5,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.android.listpopwindow.StringActivity">
+
     <Button
+        android:id="@+id/btn_string_nobackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
         android:text="自适应宽度的ListPopWindow_无背景"
-        android:id="@+id/btn_string_nobackground"/>
+        android:textAllCaps="false" />
+
     <Button
+        android:id="@+id/btn_string_withbackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
-
         android:text="自适应宽度的ListPopWindow_有背景"
-        android:id="@+id/btn_string_withbackground"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textAllCaps="false"
 
-        android:text="宽度全屏的ListPopWindow_无背景"
-        android:id="@+id/btn_string_nobackground_fillscreen"/>
+        android:textAllCaps="false" />
+
     <Button
+        android:id="@+id/btn_string_nobackground_fillscreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
+        android:text="宽度全屏的ListPopWindow_无背景"
+
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_string_withbackground_fillscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="宽度全屏的ListPopWindow_有背景"
-        android:id="@+id/btn_string_withbackground_fillscreen"/>
+        android:textAllCaps="false" />
 
 </LinearLayout>

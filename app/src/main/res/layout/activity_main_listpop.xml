@@ -7,33 +7,32 @@
     tools:context="com.android.listpopwindow.MainActivity">
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="String类型的ListViewPopWindow"
-        android:textAllCaps="false"
         android:id="@+id/btn_string"
-        />
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:padding="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="String和Image的ListViewPopWindow"
-        android:textAllCaps="false"
+        android:text="String类型的ListViewPopWindow"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_string_image"
-        />
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:padding="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="自定义PopWindow"
-        android:textAllCaps="false"
+        android:text="String和Image的ListViewPopWindow"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_string_common"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="自定义PopWindow"
+        android:textAllCaps="false" />
 </LinearLayout>

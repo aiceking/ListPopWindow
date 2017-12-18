@@ -5,41 +5,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.android.listpopwindow.StringActivity">
+
     <Button
+        android:id="@+id/btn_string_image_nobackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
         android:text="自适应宽度的ListPopWindow_无背景"
-        android:id="@+id/btn_string_image_nobackground"/>
+        android:textAllCaps="false" />
+
     <Button
+        android:id="@+id/btn_string_image_withbackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
-
         android:text="自适应宽度的ListPopWindow_有背景"
-        android:id="@+id/btn_string_image_withbackground"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textAllCaps="false"
 
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_string_image_nobackground_fillscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="宽度全屏的ListPopWindow_无背景"
-        android:id="@+id/btn_string_image_nobackground_fillscreen"/>
+
+        android:textAllCaps="false" />
+
     <Button
+        android:id="@+id/btn_string_image_withbackground_fillscreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
         android:text="宽度全屏的ListPopWindow_有背景"
-        android:id="@+id/btn_string_image_withbackground_fillscreen"/>
+        android:textAllCaps="false" />
+
     <Button
+        android:id="@+id/btn_string_image_net"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textAllCaps="false"
         android:text="加载网络图片"
-        android:id="@+id/btn_string_image_net"/>
+        android:textAllCaps="false" />
 </LinearLayout>
