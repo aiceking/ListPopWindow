@@ -17,9 +17,9 @@ public class MyApplication extends Application{
     public void onCreate() {
         super.onCreate();
         LeakCanary.install(this);
-        ListPopWindowManager.getInStance().setPopWindowColor(R.color.gary);
-        ListPopWindowManager.getInStance().setTextColor(R.color.white);
-        ListPopWindowManager.getInStance().setShowImageListener(new ListPopWindowManager.showImageListener() {
+        ListPopWindowManager.getInstance().setPopWindowColor(R.color.gary);
+        ListPopWindowManager.getInstance().setTextColor(R.color.white);
+        ListPopWindowManager.getInstance().setShowImageListener(new ListPopWindowManager.showImageListener() {
             @Override
             public void showImage(Context context, String path, ImageView imageView) {
                 Glide.with(context).load(path)

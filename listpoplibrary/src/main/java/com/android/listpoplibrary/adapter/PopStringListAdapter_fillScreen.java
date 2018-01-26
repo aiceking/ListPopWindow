@@ -58,8 +58,8 @@ public class PopStringListAdapter_fillScreen extends BaseAdapter {
         }
 
         viewHolder.tvPopwindowListview.setText(list.get(i));
-        if (ListPopWindowManager.getInStance().getTextColor()!=0){
-            viewHolder.tvPopwindowListview.setTextColor(context.getResources().getColor(ListPopWindowManager.getInStance().getTextColor()));
+        if (ListPopWindowManager.getInstance().getTextColor()!=0){
+            viewHolder.tvPopwindowListview.setTextColor(context.getResources().getColor(ListPopWindowManager.getInstance().getTextColor()));
         }
         return view;
     }

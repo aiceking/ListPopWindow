@@ -53,7 +53,7 @@ public class StringImageActivity extends AppCompatActivity {
         list.add(new ListPopModel("测试===== 8", R.drawable.shizi,  ImageType.Resources));
         switch (view.getId()) {
             case R.id.btn_string_image_nobackground:
-                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Nobg,list, btnStringImageNobackground, this,
+                ListPopWindowManager.getInstance().showStringImagePopWindow(PopWindowType.String_Image_Nobg,list, btnStringImageNobackground, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -62,7 +62,7 @@ public class StringImageActivity extends AppCompatActivity {
                         });
                 break;
             case R.id.btn_string_image_withbackground:
-                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Hasbg,list, btnStringImageWithbackground, this,
+                ListPopWindowManager.getInstance().showStringImagePopWindow(PopWindowType.String_Image_Hasbg,list, btnStringImageWithbackground, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -72,7 +72,7 @@ public class StringImageActivity extends AppCompatActivity {
 
                 break;
             case R.id.btn_string_image_nobackground_fillscreen:
-                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Nobg_fill,list, btnStringImageNobackgroundFillscreen, this,
+                ListPopWindowManager.getInstance().showStringImagePopWindow(PopWindowType.String_Image_Nobg_fill,list, btnStringImageNobackgroundFillscreen, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -82,7 +82,7 @@ public class StringImageActivity extends AppCompatActivity {
 
                 break;
             case R.id.btn_string_image_withbackground_fillscreen:
-                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Hasbg_fill,list, btnStringImageWithbackgroundFillscreen, this,new ListPopWindowManager.onListPopItemClickListener() {
+                ListPopWindowManager.getInstance().showStringImagePopWindow(PopWindowType.String_Image_Hasbg_fill,list, btnStringImageWithbackgroundFillscreen, this,new ListPopWindowManager.onListPopItemClickListener() {
                     @Override
                     public void onClick(int position) {
                         Toast.makeText(StringImageActivity.this, list.get(position).getType()+"="+list.get(position).getContent(), Toast.LENGTH_SHORT).show();
@@ -115,7 +115,7 @@ public class StringImageActivity extends AppCompatActivity {
                 list_netImages.add(new ListPopModel("测试===== 8",
                         "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509618093965&di=8e9d62f51db174daee4b8446db44cea3&imgtype=0&src=http%3A%2F%2Fgb.cri.cn%2Fmmsource%2Fimages%2F2013%2F06%2F25%2F90%2F13492636535114937994.jpg",
                         ImageType.Net));
-                ListPopWindowManager.getInStance().showStringImagePopWindow(PopWindowType.String_Image_Nobg_fill,list_netImages, btnStringImageNet, this,
+                ListPopWindowManager.getInstance().showStringImagePopWindow(PopWindowType.String_Image_Nobg_fill,list_netImages, btnStringImageNet, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -128,6 +128,6 @@ public class StringImageActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ListPopWindowManager.getInStance().onDestoryPopWindow(this);
+        ListPopWindowManager.getInstance().onDestoryPopWindow(this);
     }
 }

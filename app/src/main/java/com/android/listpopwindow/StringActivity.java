@@ -47,7 +47,7 @@ public class StringActivity extends AppCompatActivity {
                 list.add("测试===== 6");
                 list.add("测试===== 7");
                 list.add("测试===== 8");
-                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Nobg,list, btnStringNobackground, this,
+                ListPopWindowManager.getInstance().showStringPopWindow(PopWindowType.String_Nobg,list, btnStringNobackground, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -65,7 +65,7 @@ public class StringActivity extends AppCompatActivity {
                 list2.add("测试===== 6");
                 list2.add("测试===== 7");
                 list2.add("测试===== 8");
-                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Hasbg,list2, btnStringWithbackground, this,
+                ListPopWindowManager.getInstance().showStringPopWindow(PopWindowType.String_Hasbg,list2, btnStringWithbackground, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -83,7 +83,7 @@ public class StringActivity extends AppCompatActivity {
                 list3.add("测试===== 6");
                 list3.add("测试===== 7");
                 list3.add("测试===== 8");
-                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Nobg_fill,list3, btnStringNobackgroundFillscreen, this,
+                ListPopWindowManager.getInstance().showStringPopWindow(PopWindowType.String_Nobg_fill,list3, btnStringNobackgroundFillscreen, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -101,7 +101,7 @@ public class StringActivity extends AppCompatActivity {
                 list4.add("测试===== 6");
                 list4.add("测试===== 7");
                 list4.add("测试===== 8");
-                ListPopWindowManager.getInStance().showStringPopWindow(PopWindowType.String_Hasbg_fill,list4, btnStringWithbackgroundFillscreen, this,
+                ListPopWindowManager.getInstance().showStringPopWindow(PopWindowType.String_Hasbg_fill,list4, btnStringWithbackgroundFillscreen, this,
                         new ListPopWindowManager.onListPopItemClickListener() {
                             @Override
                             public void onClick(int position) {
@@ -115,6 +115,6 @@ public class StringActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ListPopWindowManager.getInStance().onDestoryPopWindow(this);
+        ListPopWindowManager.getInstance().onDestoryPopWindow(this);
     }
 }

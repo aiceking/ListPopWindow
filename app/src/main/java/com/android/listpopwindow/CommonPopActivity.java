@@ -36,7 +36,7 @@ public class CommonPopActivity extends AppCompatActivity {
         tv.setGravity(Gravity.CENTER);
         tv.setPadding(10,30,10,30);
         tv.setBackgroundColor(Color.WHITE);
-        popupWindow= ListPopWindowManager.getInStance().showCommonPopWindow(tv,btnStringCommon,this,true);
+        popupWindow= ListPopWindowManager.getInstance().showCommonPopWindow(tv,btnStringCommon,this,true);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

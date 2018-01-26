@@ -84,7 +84,7 @@ public class ListPopWindowManager {
     public interface showImageListener{
         void showImage(Context context,  String path, ImageView imageView);
     }
-    public static ListPopWindowManager getInStance(){
+    public static ListPopWindowManager getInstance(){
         if (listPopWindowManager ==null){
             synchronized (ListPopWindowManager.class){
                 if (listPopWindowManager ==null){

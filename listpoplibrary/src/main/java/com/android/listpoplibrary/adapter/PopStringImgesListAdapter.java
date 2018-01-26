@@ -60,15 +60,15 @@ public class PopStringImgesListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.tvPopwindowListview.setText(list.get(i).getContent());
-        if (ListPopWindowManager.getInStance().getTextColor()!=0){
-            viewHolder.tvPopwindowListview.setTextColor(context.getResources().getColor(ListPopWindowManager.getInStance().getTextColor()));
+        if (ListPopWindowManager.getInstance().getTextColor()!=0){
+            viewHolder.tvPopwindowListview.setTextColor(context.getResources().getColor(ListPopWindowManager.getInstance().getTextColor()));
 
         }
         if (list.get(i).getType()== ImageType.Resources){
         viewHolder.ivPopwindowListview.setImageResource(list.get(i).getImageId());
         } else if (list.get(i).getType()== ImageType.Net){
-            if (ListPopWindowManager.getInStance().getShowImageListener()!=null){
-                ListPopWindowManager.getInStance().getShowImageListener().showImage(context,list.get(i).getImagePath(),viewHolder.ivPopwindowListview);
+            if (ListPopWindowManager.getInstance().getShowImageListener()!=null){
+                ListPopWindowManager.getInstance().getShowImageListener().showImage(context,list.get(i).getImagePath(),viewHolder.ivPopwindowListview);
             }
         }
         return view;
