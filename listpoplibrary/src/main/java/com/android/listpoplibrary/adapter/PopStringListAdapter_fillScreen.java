@@ -1,6 +1,7 @@
 package com.android.listpoplibrary.adapter;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,10 +51,12 @@ public class PopStringListAdapter_fillScreen extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.popwindow_listview_string_item_library, viewGroup, false);
             viewHolder = new ViewHolder();
             viewHolder.tvPopwindowListview=(TextView) view.findViewById(R.id.tv_popwindow_listview);
+            viewHolder.tvPopwindowListview.setGravity(Gravity.CENTER);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
+
         viewHolder.tvPopwindowListview.setText(list.get(i));
         if (ListPopWindowManager.getInStance().getTextColor()!=0){
             viewHolder.tvPopwindowListview.setTextColor(context.getResources().getColor(ListPopWindowManager.getInStance().getTextColor()));
