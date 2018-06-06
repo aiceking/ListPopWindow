@@ -65,10 +65,12 @@ public class ListPopWindowManager {
     private HashMap<Activity,PopupWindow> hashMap_stringImagePopupWindowWithBackground;
 
     private HashMap<Activity,PopupWindow> hashMap_stringPopupWindowNoBackground_fillScreen;
+    private HashMap<Activity,PopupWindow> hashMap_stringPopupWindowNoBackground_halfScreen;
 
     private HashMap<Activity,PopupWindow> hashMap_stringPopupWindowWithBackground_fillScreen;
 
     private HashMap<Activity,PopupWindow> hashMap_stringImagePopupWindowNoBackground_fillScreen;
+    private HashMap<Activity,PopupWindow> hashMap_stringImagePopupWindowNoBackground_halfScreen;
 
     private HashMap<Activity,PopupWindow> hashMap_stringImagePopupWindowWithBackground_fillScreen;
 
@@ -103,6 +105,8 @@ public class ListPopWindowManager {
          hashMap_stringPopupWindowWithBackground_fillScreen=new HashMap<>();
          hashMap_stringImagePopupWindowNoBackground_fillScreen=new HashMap<>();
          hashMap_stringImagePopupWindowWithBackground_fillScreen=new HashMap<>();
+        hashMap_stringPopupWindowNoBackground_halfScreen=new HashMap<>();
+        hashMap_stringImagePopupWindowNoBackground_halfScreen=new HashMap<>();
     }
     public void showStringPopWindow(PopWindowType popWindowType,List<String> list,View view,final Activity activity,final onListPopItemClickListener onListPopItemClickListener){
         switch (popWindowType){
@@ -111,6 +115,9 @@ public class ListPopWindowManager {
                 break;
             case String_Nobg_fill:
                 showStringPopNoBg_fillScreen(list,view,activity,onListPopItemClickListener);
+                break;
+            case String_Nobg_half:
+                showStringPopNoBg_halfScreen(list,view,activity,onListPopItemClickListener);
                 break;
             case String_Hasbg:
                 showStringPopHasBg(list,view,activity,onListPopItemClickListener);
@@ -128,6 +135,9 @@ public class ListPopWindowManager {
                 break;
             case String_Image_Nobg_fill:
                 showStringAndImagePopNoBg_fillScreen(list,view,activity,onListPopItemClickListener);
+                break;
+            case String_Image_Nobg_half:
+                showStringAndImagePopNoBg_halfScreen(list,view,activity,onListPopItemClickListener);
                 break;
             case String_Image_Hasbg:
                 showStringAndImagePopHasBg(list,view,activity,onListPopItemClickListener);
@@ -240,7 +250,61 @@ public class ListPopWindowManager {
             }
         }
     }
+    private void showStringPopNoBg_halfScreen(List<String> list,View view,final Activity activity,final onListPopItemClickListener onListPopItemClickListener){
+        if (list==null){
+            Toast.makeText(activity, "数据为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!hashMap_stringPopupWindowNoBackground_halfScreen.containsKey(activity)){
+            Log.v("pop=","new");
 
+            View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_fillparent_library, null);
+            ListView pop_listview=(ListView)contentview.findViewById(R.id.pop_listview);
+            CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
+            if (listPopWindowManager.getPopWindowColor()!=0){
+
+                card_popwindow.setCardBackgroundColor(activity.getResources().getColor(listPopWindowManager.getPopWindowColor()));}
+            PopStringListAdapter_fillScreen stringAdapter_fillScreen=new PopStringListAdapter_fillScreen(list,activity);
+            pop_listview.setAdapter(stringAdapter_fillScreen);
+            WindowManager wm = (WindowManager) activity
+                    .getSystemService(Context.WINDOW_SERVICE);
+            int width = wm.getDefaultDisplay().getWidth();
+            final PopupWindow stringPopupWindowNoBackground_fillScreen = new PopupWindow(contentview, width/2,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            stringPopupWindowNoBackground_fillScreen.setBackgroundDrawable(new ColorDrawable(0) );
+            stringPopupWindowNoBackground_fillScreen.setOutsideTouchable(true);
+            stringPopupWindowNoBackground_fillScreen.setAnimationStyle(android.R.style.Animation_Dialog);
+            stringPopupWindowNoBackground_fillScreen.setTouchable(true);
+            stringPopupWindowNoBackground_fillScreen.setFocusable(true);
+            stringPopupWindowNoBackground_fillScreen.showAsDropDown(view);
+            pop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    stringPopupWindowNoBackground_fillScreen.dismiss();
+                    if (onListPopItemClickListener!=null){
+                        onListPopItemClickListener.onClick(i);}
+                }
+            });
+            hashMap_stringPopupWindowNoBackground_halfScreen.put(activity,stringPopupWindowNoBackground_fillScreen);
+        }else{
+            if (!hashMap_stringPopupWindowNoBackground_halfScreen.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
+                PopStringListAdapter_fillScreen stringAdapter_fillScreen=new PopStringListAdapter_fillScreen(list,activity);
+                ListView pop_listview=(ListView)hashMap_stringPopupWindowNoBackground_halfScreen.get(activity).getContentView().findViewById(R.id.pop_listview);
+                pop_listview.setAdapter(stringAdapter_fillScreen);
+                pop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        hashMap_stringPopupWindowNoBackground_halfScreen.get(activity).dismiss();
+                        if (onListPopItemClickListener!=null){
+                            onListPopItemClickListener.onClick(i);}
+                    }
+                });
+                hashMap_stringPopupWindowNoBackground_halfScreen.get(activity).showAsDropDown(view);
+            }
+        }
+    }
     private void showStringPopHasBg( List<String> list,View view,final Activity activity,final onListPopItemClickListener onListPopItemClickListener){
         if (list==null){
             Toast.makeText(activity, "数据为空", Toast.LENGTH_SHORT).show();
@@ -501,6 +565,62 @@ public class ListPopWindowManager {
             }
         }
     }
+    private void showStringAndImagePopNoBg_halfScreen(List<ListPopModel> list, View view, final Activity activity, final onListPopItemClickListener onListPopItemClickListener){
+        if (list==null){
+            Toast.makeText(activity, "数据为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!hashMap_stringImagePopupWindowNoBackground_halfScreen.containsKey(activity)){
+            Log.v("pop=","new");
+
+            View contentview = LayoutInflater.from(activity).inflate(R.layout.popwindow_list_fillparent_library, null);
+            ListView pop_listview=(ListView)contentview.findViewById(R.id.pop_listview);
+            CardView card_popwindow=(CardView)contentview.findViewById(R.id.card_popwindow);
+            if (listPopWindowManager.getPopWindowColor()!=0){
+
+                card_popwindow.setCardBackgroundColor(activity.getResources().getColor(listPopWindowManager.getPopWindowColor()));}
+            PopStringImgesListAdapter_fillScreen stringImageAdapter_fillScreen=new PopStringImgesListAdapter_fillScreen(list,activity);
+            pop_listview.setAdapter(stringImageAdapter_fillScreen);
+            WindowManager wm = (WindowManager) activity
+                    .getSystemService(Context.WINDOW_SERVICE);
+            int width = wm.getDefaultDisplay().getWidth();
+            final PopupWindow stringImagePopupWindowNoBackground_fillScreen = new PopupWindow(contentview, width/2,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            stringImagePopupWindowNoBackground_fillScreen.setBackgroundDrawable(new ColorDrawable(0) );
+            stringImagePopupWindowNoBackground_fillScreen.setOutsideTouchable(true);
+            stringImagePopupWindowNoBackground_fillScreen.setAnimationStyle(android.R.style.Animation_Dialog);
+            stringImagePopupWindowNoBackground_fillScreen.setTouchable(true);
+            stringImagePopupWindowNoBackground_fillScreen.setFocusable(true);
+            stringImagePopupWindowNoBackground_fillScreen.showAsDropDown(view);
+            pop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    stringImagePopupWindowNoBackground_fillScreen.dismiss();
+                    if (onListPopItemClickListener!=null){
+                        onListPopItemClickListener.onClick(i);}
+                }
+            });
+            hashMap_stringImagePopupWindowNoBackground_halfScreen.put(activity,stringImagePopupWindowNoBackground_fillScreen);
+        }else{
+            if (!hashMap_stringImagePopupWindowNoBackground_halfScreen.get(activity).isShowing()){
+                Log.v("pop=","odl");
+
+                ListView pop_listview=(ListView)hashMap_stringImagePopupWindowNoBackground_halfScreen.get(activity).getContentView().findViewById(R.id.pop_listview);
+                PopStringImgesListAdapter_fillScreen stringImageAdapter_fillScreen=new PopStringImgesListAdapter_fillScreen(list,activity);
+                pop_listview.setAdapter(stringImageAdapter_fillScreen);
+                pop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        hashMap_stringImagePopupWindowNoBackground_halfScreen.get(activity).dismiss();
+                        if (onListPopItemClickListener!=null){
+                            onListPopItemClickListener.onClick(i);
+                        }
+                    }
+                });
+                hashMap_stringImagePopupWindowNoBackground_halfScreen.get(activity).showAsDropDown(view);
+            }
+        }
+    }
     private void showStringAndImagePopHasBg(List<ListPopModel> list, View view, final Activity activity, final onListPopItemClickListener onListPopItemClickListener){
         if (list==null){
             Toast.makeText(activity, "数据为空", Toast.LENGTH_SHORT).show();
@@ -728,6 +848,18 @@ public class ListPopWindowManager {
                 hashMap_stringImagePopupWindowWithBackground_fillScreen.get(activity).dismiss();
             }
             hashMap_stringImagePopupWindowWithBackground_fillScreen.remove(activity);
+        }
+        if (hashMap_stringPopupWindowNoBackground_halfScreen.containsKey(activity)){
+            if (hashMap_stringPopupWindowNoBackground_halfScreen.get(activity).isShowing()){
+                hashMap_stringPopupWindowNoBackground_halfScreen.get(activity).dismiss();
+            }
+            hashMap_stringPopupWindowNoBackground_halfScreen.remove(activity);
+        }
+        if (hashMap_stringImagePopupWindowNoBackground_halfScreen.containsKey(activity)){
+            if (hashMap_stringImagePopupWindowNoBackground_halfScreen.get(activity).isShowing()){
+                hashMap_stringImagePopupWindowNoBackground_halfScreen.get(activity).dismiss();
+            }
+            hashMap_stringImagePopupWindowNoBackground_halfScreen.remove(activity);
         }
     }
 }

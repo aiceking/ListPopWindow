@@ -39,5 +39,25 @@
         android:padding="10dp"
         android:text="宽度全屏的ListPopWindow_有背景"
         android:textAllCaps="false" />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn_string_nobackground_halfscreen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:text="宽度半屏的ListPopWindow_无背景"
+        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_string_image_nobackground_halfscreen"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="宽度半屏的ListPopWindow_无背景_有图片"
+            android:textAllCaps="false" />
+    </LinearLayout>
 </LinearLayout>
